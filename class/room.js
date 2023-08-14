@@ -52,13 +52,12 @@ class Room {
   }
 
   getItemByName(name) {
-
-    // Fill this in
-
+    // iterate through room items to find item name
+    return this.items.find(item => item.name === name);
   }
 
   getEnemyByName(name) {
-
+    
     // Fill this in
   }
 

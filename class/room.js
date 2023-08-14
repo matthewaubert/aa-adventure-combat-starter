@@ -57,8 +57,9 @@ class Room {
   }
 
   getEnemyByName(name) {
-    
-    // Fill this in
+    const enemies = this.getEnemies(name); // Get enemies
+    // iterate through enemies to find enemy name
+    return enemies.find(enemy => enemy === name);
   }
 
 }

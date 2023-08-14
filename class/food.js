@@ -7,6 +7,7 @@ class Food extends Item {
     this.effect = effect;
     this.isFood = true;
   }
+  
 }
 
 module.exports = {

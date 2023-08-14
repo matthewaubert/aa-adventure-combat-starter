@@ -14,7 +14,12 @@ class Enemy extends Character {
 
 
   randomMove() {
-    // Fill this in
+    const exits = this.currentRoom.getExits(); // get available exits from current room
+    const direction = exits[Math.floor(Math.random() * exits.length)]; // randomly select direction
+    const nextRoom = this.currentRoom.getRoomInDirection(direction); // select next room
+    this.currentRoom = nextRoom; // move Enemy to exit
+
+    this.cooldown += 3000; // reset cooldown to 3 seconds
   }
 
   takeSandwich() {
@@ -65,7 +70,6 @@ class Enemy extends Character {
     this.cooldown += 3000;
 
     this.alert(`${this.name} scratches its nose`);
-
   }
 
 

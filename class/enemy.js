@@ -1,4 +1,4 @@
-const {Character} = require('./character');
+const { Character } = require('./character');
 
 
 class Enemy extends Character {
@@ -34,7 +34,7 @@ class Enemy extends Character {
       this.cooldown = 0;
       this.act();
     };
-    setTimeout(resetCooldown, this.cooldown);
+    setTimeout(resetCooldown.bind(this), this.cooldown);
   }
 
   attack() {
@@ -62,7 +62,7 @@ class Enemy extends Character {
 
 
   scratchNose() {
-    this.cooldown += 1000;
+    this.cooldown += 3000;
 
     this.alert(`${this.name} scratches its nose`);
 

@@ -48,6 +48,8 @@ function startGame() {
 
       processCommand();
     });
+
+    World.startGame();
   });
 }
 

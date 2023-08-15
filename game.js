@@ -96,6 +96,11 @@ function processCommand() {
 
       player.eatItem(itemName);
 
+    } else if (cmd.startsWith("observe ")) {
+      let itemName = cmd.split(" ")[1];
+
+      player.observeItem(itemName);
+      
     } else if (cmd.startsWith("hit ")) {
       let enemyName = cmd.split(" ")[1];
 

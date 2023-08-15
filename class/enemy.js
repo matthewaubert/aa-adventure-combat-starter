@@ -52,12 +52,13 @@ class Enemy extends Character {
   }
 
   attack() {
-    // this.cooldown += 3000; // increment cooldown
-    if (this.attackTarget === null) return; // if attackTarget is null, return
-    // apply strength amount of damage to player
-    this.player.applyDamage(this.strength);
-    // tell player they've been attacked
-    console.log(`The ${this.name} attacks you, dealing ${this.strength} damage!`);
+    // if attackTarget equals player and player is in same room
+    if (this.attackTarget === this.player && this.currentRoom === this.player.currentRoom) {
+      // apply strength amount of damage to player
+      this.player.applyDamage(this.strength);
+      // tell player they've been attacked
+      console.log(`The ${this.name} attacks you, dealing ${this.strength} damage!`);
+    }
   }
 
   applyDamage(amount) {

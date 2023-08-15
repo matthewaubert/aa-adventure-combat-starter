@@ -43,7 +43,9 @@ class Enemy extends Character {
   }
 
   attack() {
-    // Fill this in
+    // apply strength amount of damage to player
+    this.player.applyDamage(this.strength);
+    this.cooldown += 3000; // increment cooldown
   }
 
   applyDamage(amount) {

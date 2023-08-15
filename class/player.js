@@ -1,6 +1,6 @@
-const {Character} = require('./character');
-const {Enemy} = require('./enemy');
-const {Food} = require('./food');
+const { Character } = require('./character');
+const { Enemy } = require('./enemy');
+const { Food } = require('./food');
 
 class Player extends Character {
 
@@ -110,3 +110,37 @@ class Player extends Character {
 module.exports = {
   Player,
 };
+
+
+
+/****************************** TESTS ******************************/
+// const { Item } = require("./item");
+// const { Room } = require("./room");
+// const { Food } = require("./food");
+
+// let item = new Item("rock", "just a simple rock");
+// let room = new Room("Test Room", "A test room");
+// let player = new Player("player", room);
+
+// room.items.push(item);
+// console.log(room.items.length); // 1
+// console.log(player.items.length); // 0
+
+// player.takeItem("rock");
+// console.log(room.items.length); // 0
+// console.log(player.items.length); // 1
+
+// console.log(player.getItemByName("rock")); // rock item
+
+
+// let food = new Food("sandwich", "a delicious sandwich");
+// let room = new Room("Test Room", "A test room");
+// let player = new Player("player", room);
+
+// player.items.push(food);
+
+// console.log(player.items.length); // 1
+
+// player.eatItem("sandwich");
+
+// console.log(player.items.length); // 0

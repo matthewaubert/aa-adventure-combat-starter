@@ -4,7 +4,7 @@ const { Character } = require('./character');
 class Enemy extends Character {
   constructor(name, description, currentRoom) {
     super(name, description, currentRoom);
-    this.cooldown = 3000; // cooldown attribute defaults to 3000ms
+    this.cooldown = 6000; // cooldown attribute defaults to 3000ms
     this.attackTarget = null; // attack target
   }
 
@@ -28,7 +28,7 @@ class Enemy extends Character {
 
     this.currentRoom = nextRoom; // move Enemy to exit
 
-    this.cooldown += 3000; // reset cooldown to 3 seconds
+    // this.cooldown += 3000; // reset cooldown to 3 seconds
   }
 
   takeSandwich() {
@@ -52,7 +52,7 @@ class Enemy extends Character {
   }
 
   attack() {
-    this.cooldown += 3000; // increment cooldown
+    // this.cooldown += 3000; // increment cooldown
     if (this.attackTarget === null) return; // if attackTarget is null, return
     // apply strength amount of damage to player
     this.player.applyDamage(this.strength);
@@ -88,6 +88,7 @@ class Enemy extends Character {
     } else {
       const action = this.randomAction(); // get random action
       action(); // implement action
+      this.cooldown += 6000; // increment cooldown period
       this.rest();
     }
 
@@ -96,7 +97,7 @@ class Enemy extends Character {
 
 
   scratchNose() {
-    this.cooldown += 3000;
+    // this.cooldown += 3000;
 
     this.alert(`The ${this.name} scratches its nose.`);
   }

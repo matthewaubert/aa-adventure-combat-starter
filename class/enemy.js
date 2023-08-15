@@ -5,6 +5,7 @@ class Enemy extends Character {
   constructor(name, description, currentRoom) {
     super(name, description, currentRoom);
     this.cooldown = 3000; // cooldown attribute defaults to 3000ms
+    this.attackTarget = null; // attack target
   }
 
   setPlayer(player) {
@@ -45,9 +46,11 @@ class Enemy extends Character {
     // Fill this in
   }
 
-  // applyDamage(amount) {
-  //   // Fill this in
-  // }
+  applyDamage(amount) {
+    this.health -= amount; // subtract amount from character health
+    this.attackTarget = this.player; // change attackTarget to player
+    if (this.health <= 0) this.die(); // if character health <= 0, character dies
+  }
 
 
 

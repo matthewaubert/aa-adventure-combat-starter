@@ -19,6 +19,7 @@ class Character {
     this.currentRoom.items.push(...this.items); // place all items in room
     this.items = []; // drop all items
     this.currentRoom = null; // set currentRoom to null
+    console.log(`The ${this.name} is dead!`); // inform player character has died
   }
 
 }

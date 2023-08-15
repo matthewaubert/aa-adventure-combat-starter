@@ -21,6 +21,7 @@ function printHelp() {
   console.log("  Type 'take <item>' to take an item");
   console.log("  Type 'drop <item>' to drop an item");
   console.log("  Type 'eat <item>' to eat a food item");
+  console.log("  Type 'hit <enemy>' to hit an enemy")
   console.log("  Type 'n', 's', 'e', 'w' to move");
   console.log("");
 }

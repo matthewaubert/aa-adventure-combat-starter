@@ -3,7 +3,6 @@ const { Character } = require('./character');
 
 class Enemy extends Character {
   constructor(name, description, currentRoom) {
-    // Fill this in
     super(name, description, currentRoom);
     this.cooldown = 3000; // cooldown attribute defaults to 3000ms
   }
@@ -46,9 +45,9 @@ class Enemy extends Character {
     // Fill this in
   }
 
-  applyDamage(amount) {
-    // Fill this in
-  }
+  // applyDamage(amount) {
+  //   // Fill this in
+  // }
 
 
 

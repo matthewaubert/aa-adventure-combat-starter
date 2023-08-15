@@ -89,9 +89,13 @@ class Player extends Character {
 }
 
   hit(name) {
-
-    // Fill this in
-
+    const target = this.currentRoom.getEnemyByName(name); // find target
+    if (target === undefined) { // if target doesn't exist, tell player
+      console.log(`There is no ${name} here...`);
+      return;
+    }
+    // apply strength amount of damage to target
+    target.applyDamage(this.strength);
   }
 
   die() {

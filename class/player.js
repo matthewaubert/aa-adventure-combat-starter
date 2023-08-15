@@ -94,6 +94,8 @@ class Player extends Character {
       console.log(`There is no ${name} here...`);
       return;
     }
+    // tell player they've been attacked
+    console.log(`You hit the ${name}, dealing ${this.strength} damage!`);
     // apply strength amount of damage to target
     target.applyDamage(this.strength);
   }

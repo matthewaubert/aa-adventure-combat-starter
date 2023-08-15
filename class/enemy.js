@@ -15,7 +15,7 @@ class Enemy extends Character {
 
   randomMove() {
     const exits = this.currentRoom.getExits(); // get available exits from current room
-    const direction = exits[Math.floor(Math.random() * exits.length)]; // randomly select direction
+    const direction = exits[this.#getRandomNumber(exits.length)]; // randomly select direction
     const nextRoom = this.currentRoom.getRoomInDirection(direction); // select next room
     this.currentRoom = nextRoom; // move Enemy to exit
 
@@ -43,9 +43,12 @@ class Enemy extends Character {
   }
 
   attack() {
+    this.cooldown += 3000; // increment cooldown
+    if (this.attackTarget === null) return; // if attackTarget is null, return
     // apply strength amount of damage to player
     this.player.applyDamage(this.strength);
-    this.cooldown += 3000; // increment cooldown
+    // tell player they've been attacked
+    console.log(`The ${this.name} attacks you, dealing ${this.strength} damage!`);
   }
 
   applyDamage(amount) {
@@ -54,7 +57,19 @@ class Enemy extends Character {
     if (this.health <= 0) this.die(); // if character health <= 0, character dies
   }
 
+  // method "randomAction"
+  randomAction() {
+    // array of action methods: scratchNose, attack, move
+    const actions = [this.scratchNose.bind(this), this.attack.bind(this), this.randomMove.bind(this)];
+    // select random number within range of indices of action methods
+    const index = this.#getRandomNumber(actions.length);
+    return actions[index]; // return action method at random index
+  }
 
+  // private method "getRandomNumber"; input: num
+  #getRandomNumber(num) {
+    return Math.floor(Math.random() * num);
+  }
 
   act() {
     if (this.health <= 0) {
@@ -62,7 +77,8 @@ class Enemy extends Character {
     } else if (this.cooldown > 0) {
       this.rest();
     } else {
-      this.scratchNose();
+      const action = this.randomAction(); // get random action
+      action(); // implement action
       this.rest();
     }
 
@@ -73,7 +89,7 @@ class Enemy extends Character {
   scratchNose() {
     this.cooldown += 3000;
 
-    this.alert(`${this.name} scratches its nose`);
+    this.alert(`The ${this.name} scratches its nose`);
   }
 
 

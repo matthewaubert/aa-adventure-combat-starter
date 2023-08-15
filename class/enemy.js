@@ -17,6 +17,15 @@ class Enemy extends Character {
     const exits = this.currentRoom.getExits(); // get available exits from current room
     const direction = exits[this.#getRandomNumber(exits.length)]; // randomly select direction
     const nextRoom = this.currentRoom.getRoomInDirection(direction); // select next room
+
+    // if enemy leaves room player is in
+    if (this.currentRoom === this.player.currentRoom) {
+      console.log(`The ${this.name} has left the area.`); // inform player
+    // if enemy enters room player is in
+    } else if (nextRoom === this.player.currentRoom) {
+      console.log(`The ${this.name} has entered the area!`); // inform player
+    }
+
     this.currentRoom = nextRoom; // move Enemy to exit
 
     this.cooldown += 3000; // reset cooldown to 3 seconds
@@ -89,7 +98,7 @@ class Enemy extends Character {
   scratchNose() {
     this.cooldown += 3000;
 
-    this.alert(`The ${this.name} scratches its nose`);
+    this.alert(`The ${this.name} scratches its nose.`);
   }
 
 

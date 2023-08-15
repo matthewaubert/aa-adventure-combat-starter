@@ -24,6 +24,7 @@ function printHelp() {
     "  Type 'eat <item>' to eat a food item",
     "  Type 'observe <item>' to observe an item",
     "  Type 'hit <enemy>' to hit an enemy",
+    "  Type 'health' to view your current health",
     "  Type 'n', 's', 'e', 'w' to move",
     ""
   ];
@@ -105,6 +106,9 @@ function processCommand() {
       let enemyName = cmd.split(" ")[1];
 
       player.hit(enemyName);
+
+    } else if (cmd.startsWith("health")) {
+      console.log(player.health);
 
     } else {
       console.log("Invalid command. Type 'h' for help.");
